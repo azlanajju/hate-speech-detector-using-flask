@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Classification</title>
+</head>
+<body>
+    <h1>Text Classification</h1>
+    <form id="textForm" method="post">
+        <label for="text">Enter text:</label><br>
+        <input type="text" id="textInput" name="text"><br>
+        <button type="submit">Classify</button>
+    </form>
+
+    <div id="result"></div>
+
+    <script>
+        document.getElementById('textForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            var formData = new FormData(this); // Get form data
+
+            fetch('http://127.0.0.1:5000/classify', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('result').innerText = 'Result: ' + data.result; // Update result in DOM
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        });
+    </script>
+</body>
+</html>

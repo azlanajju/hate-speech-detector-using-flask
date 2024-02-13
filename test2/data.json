@@ -1,0 +1,7 @@
+[
+    {"class": 0, "text": "This is a neutral text"},
+    {"class": 1, "text": "That word is offensive: fuck"},
+    {"class": 1, "text": "No offensive language here"},
+    {"class": 0, "text": "Another neutral example"},
+    {"class": 1, "text": "Watch your language: bitch black boy"}
+]
